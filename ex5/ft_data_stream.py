@@ -30,21 +30,22 @@ def consume_event(events: list[tuple]) -> typing.Generator[tuple, None, None]:
         yield(el_del)
 
 
-print("=== Game Data Stream Processor ===")
+if __name__ == "__main__":
+    print("=== Game Data Stream Processor ===")
 
-gen_obj = gen_event()
-for i in range(1000):
-    pairs = next(gen_obj)
-    print(f"Event {i}: Player {pairs[0]} did action {pairs[1]}")
+    gen_obj = gen_event()
+    for i in range(1000):
+        pairs = next(gen_obj)
+        print(f"Event {i}: Player {pairs[0]} did action {pairs[1]}")
 
-pairs_tup = []
-gen_obj = gen_event()
-for i in range(10):
-    pairs = next(gen_obj)
-    pairs_tup.append(pairs)
+    pairs_tup = []
+    gen_obj = gen_event()
+    for i in range(10):
+        pairs = next(gen_obj)
+        pairs_tup.append(pairs)
 
-print(f"Built list of 10 events: {pairs_tup}")
+    print(f"Built list of 10 events: {pairs_tup}")
 
-for event in consume_event(pairs_tup):
-    print(f"Got event from list: {event}")
-    print(f"Remains in list: {pairs_tup}")
+    for event in consume_event(pairs_tup):
+        print(f"Got event from list: {event}")
+        print(f"Remains in list: {pairs_tup}")
