@@ -17,7 +17,7 @@ achievements = ['Crafting Genius',
 
 
 def gen_player_achievements() -> set[str]:
-    num = random.randint(5, 10)
+    num = random.randint(7, 14)
     return set(random.sample(achievements, num))
 
 
@@ -26,8 +26,8 @@ Bob = gen_player_achievements()
 Charlie = gen_player_achievements()
 Dylan = gen_player_achievements()
 
-hapgiphap = Alice.union(Bob, Charlie, Dylan)
-gyogiphap = Alice.intersection(Bob, Charlie, Dylan)
+hapgyiphap = Alice.union(Bob, Charlie, Dylan)
+gyogyiphap = Alice.intersection(Bob, Charlie, Dylan)
 only_Alice = Alice.difference(Bob, Charlie, Dylan)
 only_Bob = Bob.difference(Alice, Charlie, Dylan)
 only_Charlie = Charlie.difference(Alice, Bob, Dylan)
@@ -46,9 +46,9 @@ if __name__ == "__main__":
     print(f"Player Charlie: {Charlie}")
     print(f"Player Dylan: {Dylan}")
     print()
-    print(f"All distinct achievements: {hapgiphap}")
+    print(f"All distinct achievements: {hapgyiphap}")
     print()
-    print(f"Common achievements: {gyogiphap}")
+    print(f"Common achievements: {gyogyiphap}")
     print()
     print(f"Only Alice has: {only_Alice}")
     print(f"Only Bob has: {only_Bob}")
