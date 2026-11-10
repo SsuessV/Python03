@@ -16,14 +16,14 @@ actions = [
 ]
 
 
-def gen_event() -> typing.Generator[tuple, None, None]:
+def gen_event() -> typing.Generator[tuple[str, str], None, None]:
     while True:
         name = random.choice(players)
         action = random.choice(actions)
         yield (name, action)
 
 
-def consume_event(events: list[tuple]) -> typing.Generator[tuple, None, None]:
+def consume_event(events: list[tuple[str, str]]) -> typing.Generator[tuple[str, str], None, None]:
     while events:
         el_del = random.choice(events)
         events.remove(el_del)
