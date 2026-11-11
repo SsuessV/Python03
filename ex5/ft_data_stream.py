@@ -29,7 +29,7 @@ def consume_event(
     while events:
         el_del = random.choice(events)
         events.remove(el_del)
-        yield(el_del)
+        yield (el_del)
 
 
 if __name__ == "__main__":
