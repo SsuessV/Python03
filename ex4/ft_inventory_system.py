@@ -16,14 +16,13 @@ if __name__ == "__main__":
                 quantity = int(elements[1])
 
                 if quantity < 0:
-                    print(f"Quantity error for '{item_name}'"
-                          f": negative quantity")
-                    continue
+                    raise ValueError("negative quantity")
 
                 if item_name in inventory:
                     print(f"Redundant item '{item_name}'- discarding")
                     continue
                 inventory[item_name] = quantity
+
             except ValueError as e:
                 print(f"Quantity error for '{item_name}': {e}")
 
